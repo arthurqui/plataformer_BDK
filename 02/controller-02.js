@@ -1,6 +1,3 @@
-// Frank Poth 03/09/2018
-
-/* The keyDownUp handler was moved to the main file. */
 
 const Controller = function() {
 
@@ -14,7 +11,7 @@ const Controller = function() {
 
     switch(key_code) {
 
-      case 37: this.left.getInput(down);  break;
+      case 37: this.left.getInput(down);  break; //os numeros são os key code das teclas
       case 38: this.up.getInput(down);    break;
       case 39: this.right.getInput(down);
 

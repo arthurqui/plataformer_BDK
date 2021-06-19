@@ -32,7 +32,7 @@ Game.Animator = function(frame_set, delay, mode = "loop") {
  this.frame_set   = frame_set;
  this.frame_index = 0;
  this.frame_value = frame_set[0];
- this.mode        = mode;
+ this.mode        = "pause";
 
 };
 Game.Animator.prototype = {
@@ -218,7 +218,7 @@ Game.Object.prototype = {
 
   },
 
-  /* Does rectangular collision detection with the center of the object. */
+  
   collideObjectCenter:function(object) {
 
     let center_x = object.getCenterX();
@@ -342,7 +342,20 @@ Game.Door = function(door) {
  this.destination_zone = door.destination_zone;
 
 };
-Game.Door.prototype = {};
+Game.Door.prototype = {
+
+  collideObject(object) {
+
+  let center_x = object.getCenterX();
+  let center_y = object.getCenterY();
+
+  if (center_x < this.getLeft() || center_x > this.getRight() ||
+      center_y < this.getTop()  || center_y > this.getBottom()) return false;
+
+  return true;
+}
+
+};
 Object.assign(Game.Door.prototype, Game.Object.prototype);
 Game.Door.prototype.constructor = Game.Door;
 

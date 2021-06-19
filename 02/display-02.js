@@ -11,7 +11,7 @@ const Display = function(canvas) {
   this.drawRectangle = function(x, y, width, height, color) {
 
     this.buffer.fillStyle = color;
-    this.buffer.fillRect(Math.floor(x), Math.floor(y), width, height);
+    this.buffer.fillRect(Math.floor(x), Math.floor(y), width, height); //math.floor(x) e (y) arredonda a posição do ojbeto para evitar que a animação fique tremular, pausando em meios pixels
 
   };
 

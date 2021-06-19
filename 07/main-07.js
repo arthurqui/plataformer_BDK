@@ -78,7 +78,7 @@ window.addEventListener("load", function(event) {
 
     p.style.left = rectangle.left + "px";
     p.style.top  = rectangle.top + "px";
-    p.style.fontSize = game.world.tile_set.tile_size * rectangle.height / game.world.height + "px";
+    
 
   };
 
@@ -122,7 +122,7 @@ window.addEventListener("load", function(event) {
 
     }
 
-    p.innerHTML = "Carrots: " + game.world.carrot_count;
+    p.innerHTML = "&nbsp&nbspJoysticks: " + game.world.carrot_count;
 
     display.render();
 
@@ -138,7 +138,7 @@ window.addEventListener("load", function(event) {
 
     if (game.world.door) {
 
-      engine.stop();
+      /* engine.stop(); */
 
       assets_manager.requestJSON(ZONE_PREFIX + game.world.door.destination_zone + ZONE_SUFFIX, (zone) => {
 
@@ -165,8 +165,8 @@ window.addEventListener("load", function(event) {
   var engine         = new Engine(1000/30, render, update);
 
   var p              = document.createElement("p");
-  p.setAttribute("style", "color:#c07000; font-size:2.0em; position:fixed;");
-  p.innerHTML = "Carrots: 0";
+  p.setAttribute("style",  "color:#000;  position:fixed;");
+  p.innerHTML = "Joysticks: 0";
   document.body.appendChild(p);
 
       ////////////////////
@@ -176,6 +176,8 @@ window.addEventListener("load", function(event) {
   display.buffer.canvas.height = game.world.height;
   display.buffer.canvas.width  = game.world.width;
   display.buffer.imageSmoothingEnabled = false;
+
+
 
   assets_manager.requestJSON(ZONE_PREFIX + game.world.zone_id + ZONE_SUFFIX, (zone) => {
 
@@ -191,6 +193,8 @@ window.addEventListener("load", function(event) {
     });
 
   });
+
+
 
   window.addEventListener("keydown", keyDownUp);
   window.addEventListener("keyup"  , keyDownUp);

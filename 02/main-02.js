@@ -54,7 +54,7 @@ window.addEventListener("load", function(event) {
 
     if (controller.left.active)  { game.world.player.moveLeft();  }
     if (controller.right.active) { game.world.player.moveRight(); }
-    if (controller.up.active)    { game.world.player.jump(); controller.up.active = false; }
+    if (controller.up.active)    { game.world.player.jump(); controller.up.active = false; }// controler.up.active deixa ou não você pular varias vezes com botão pressionado.
 
     game.update();
 
@@ -67,7 +67,7 @@ window.addEventListener("load", function(event) {
   var controller = new Controller();
   var display    = new Display(document.querySelector("canvas"));
   var game       = new Game();
-  var engine     = new Engine(1000/30, render, update);
+  var engine     = new Engine(1000/30, render, update); //atualização de 30 frames por segundo
 
       ////////////////////
     //// INITIALIZE ////
